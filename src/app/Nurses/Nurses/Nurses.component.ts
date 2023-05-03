@@ -12,6 +12,7 @@ export class NursesComponent implements OnInit {
   resource = { "sort_by": "name-asc" };
   loading = '';
   nurses: any = [];
+  selectedNurses: any = []
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
