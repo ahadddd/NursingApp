@@ -17,6 +17,7 @@ div.container{
     height: 650px;
     border: 0.5px solid;
     box-sizing: border-box;
+    justify-content: space-between;
 }
 
 div.allNurses{
@@ -37,7 +38,6 @@ div.allNurses{
 div.selectedNurses{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
-    right: -300px;
     border: 0.5px solid;
     display: flex;
     flex-direction: column;
@@ -49,6 +49,13 @@ div.selectedNurses{
     box-sizing: border-box;
 }
 
+div.controls{
+    justify-content: center;
+    align-items: center;
+    width: 220px; 
+    border: 1px solid;
+    display: flex; flex-wrap: wrap; flex-direction: column;
+}
 
 button{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
