@@ -14,65 +14,69 @@
 
 <!--SHOWS WHEN NURSES ARE LOADED AND READY TO BE SELECTED-->
 <div *ngIf="loading == 'done'" class="container">
-
-    <!--SHOWS ALL NURSES PANEL-->
-    <div class="allNurses">
-
-        <!--NURSE DESCRIPTION (UNSELECTED)-->
-        <div *ngFor="let nurse of nurses; let i = index" class="card">
-        <h2>{{ nurse.name }}</h2>
-        <h4>Experience: {{ nurse.total_experience }}</h4>
-        <h4 *ngIf="nurse.zsr_number !== null">
-            {{ nurse.zsr_number + " Years" }}
-        </h4>
-        <h4>Address: {{ nurse.address }}</h4>
-        <h4>
-            Services:
-            <ul *ngFor="let service of nurse.services">
-            <li>
-                {{ service.service.name_en }}
-            </li>
-            </ul>
-        </h4>
-        <button (click)="addNurse(i)">Select Nurse</button>
+  <!--SHOWS ALL NURSES PANEL-->
+  <div class="allNurses">
+    <!--NURSE DESCRIPTION (UNSELECTED)-->
+    <div *ngFor="let nurse of nurses; let i = index" class="card">
+      <h2>{{ nurse.name }}</h2>
+      <h4>Experience: {{ nurse.total_experience }}</h4>
+      <h4 *ngIf="nurse.zsr_number !== null">
+        {{ nurse.zsr_number + " Years" }}
+      </h4>
+      <h4>Address: {{ nurse.address }}</h4>
+      <h4>
+        Services:
+        <div class="services">
+          <div *ngFor="let service of nurse.services" class="serviceBubble">
+            {{ service.service.name_en }}
+          </div>
         </div>
-
+      </h4>
+      <div class="userControls">
+        <button (click)="addNurse(i)" class="usrBtn" >Select Nurse</button>
+        <button  class="usrBtn" >View Profile</button>
+        <button  class="usrBtn" >Schedule Visit</button>
+      </div>
     </div>
+  </div>
 
-
-    <div class="controls">
+  <div class="controls">
     <button (click)="selectAll()" style="margin-bottom: 5px">Select All</button>
 
-    <button (click)="deselectAll()" style="margin-top: 5px">Deselect All</button>
-    </div>
+    <button (click)="deselectAll()" style="margin-top: 5px">
+      Deselect All
+    </button>
+  </div>
 
-    <!--SHOWS SELECTED NURSES PANEL-->
-    <div class="selectedNurses">
+  <!--SHOWS SELECTED NURSES PANEL-->
+  <div class="selectedNurses">
     <!--NURSE DESCRIPTION (SELECTED) -->
     <div *ngFor="let nurse of selectedNurses; let i = index" class="card">
-        <h2>{{ nurse.name }}</h2>
-        <h4>Experience: {{ nurse.total_experience }}</h4>
-        <h4 *ngIf="nurse.zsr_number !== null">
-        {{ nurse.zsr_number + ' Years' }}
-        </h4>
-        <h4>Address: {{ nurse.address }}</h4>
-        <h4>
+      <h2>{{ nurse.name }}</h2>
+      <h4>Experience: {{ nurse.total_experience }}</h4>
+      <h4 *ngIf="nurse.zsr_number !== null">
+        {{ nurse.zsr_number + " Years" }}
+      </h4>
+      <h4>Address: {{ nurse.address }}</h4>
+      <h4>
         Services:
-        <ul *ngFor="let service of nurse.services">
-            <li>
+        <div class="services">
+          <div *ngFor="let service of nurse.services" class="serviceBubble">
             {{ service.service.name_en }}
-            </li>
-        </ul>
-        </h4>
-        <button (click)="removeNurse(i)" >Deselect Nurse</button>
+          </div>
+        </div>
+      </h4>
+      <div class="userControls">
+        <button (click)="removeNurse(i)">Deselect Nurse</button>
+        <button>View Profile</button>
+        <button>Schedule Visit</button>
+      </div>
     </div>
-    </div>
-
-
+  </div>
 </div>
 
 <div *ngIf="loading == 'error'" class="container">
-    <div class="selectedNurses">
-        <p style="font-size: 30px; font-weight: 300;">Error encountered.</p>
-    </div>
+  <div class="selectedNurses">
+    <p style="font-size: 30px; font-weight: 300">Error encountered.</p>
+  </div>
 </div>
