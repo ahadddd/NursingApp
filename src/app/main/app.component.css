@@ -1,6 +1,15 @@
 div.header{
     width: 100%; height: 100px;
     position: fixed;
-    background-color: rgb(177, 177, 177);
+    background-color: rgba(177, 177, 177, 0.682);
     top: 0px; left: 0px;
+}
+
+div.title{
+    width: 20%; height: 80px
+}
+a{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
 }

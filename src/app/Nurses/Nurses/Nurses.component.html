@@ -1,28 +1,38 @@
-<button (click)="getNurses()">Get Nurses From Servers</button>
-
-<div *ngIf="loading == 'loading'">
+<div *ngIf="loading == 'loading'" class="allNurses">
   <h1>Please wait, loading data</h1>
 </div>
 
-<div *ngIf="loading == 'done'" class="container">
-  <div *ngFor="let nurse of nurses" class="card">
-    <h2>{{ nurse.name }}</h2>
-    <h4>Experience: {{ nurse.total_experience }}</h4>
-    <h4 *ngIf="nurse.zsr_number !== null">
-      {{ nurse.zsr_number + ' Years' }}
-    </h4>
-    <h4>Address: {{ nurse.address }}</h4>
-    <h4>
-        Services: 
-        <ul *ngFor="let service of nurse.services">
-            <li>
-                {{service.service.name_en}}
-            </li>  
-        </ul>
-    </h4>
-
-  </div>
+<div *ngIf="loading == ''" class="allNurses">
+  <button (click)="getNurses()">Get Nurses From Servers</button>
 </div>
+
+<div class="container">
+  <!--SHOWS ALL NURSES PANEL-->
+  <div *ngIf="loading == 'done'" class="allNurses">
+    <div *ngFor="let nurse of nurses" class="card">
+      <h2>{{ nurse.name }}</h2>
+      <h4>Experience: {{ nurse.total_experience }}</h4>
+      <h4 *ngIf="nurse.zsr_number !== null">
+        {{ nurse.zsr_number + " Years" }}
+      </h4>
+      <h4>Address: {{ nurse.address }}</h4>
+      <h4>
+        Services:
+        <ul *ngFor="let service of nurse.services">
+          <li>
+            {{ service.service.name_en }}
+          </li>
+        </ul>
+      </h4>
+    </div>
+  </div>
+
+  <!--SHOWS SELECTED NURSES PANEL-->
+  <div class="selectedNurses"></div>
+
+</div>
+
+
 
 <div *ngIf="loading == 'error'">
   <p>Error encountered.</p>
