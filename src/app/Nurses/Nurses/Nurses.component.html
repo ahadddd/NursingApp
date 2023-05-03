@@ -1,14 +1,18 @@
-<div *ngIf="loading == 'loading'" class="allNurses">
-  <h1>Please wait, loading data</h1>
+<div *ngIf="loading == 'loading'" class="container">
+  <div class="allNurses">
+    <h1 style="font-weight: 300">Please wait, loading data...</h1>
+  </div>
 </div>
 
-<div *ngIf="loading == ''" class="allNurses">
-  <button (click)="getNurses()">Get Nurses From Servers</button>
+<div *ngIf="loading == ''" class="container">
+  <div class="allNurses">
+    <button (click)="getNurses()">Get Nurses From Servers</button>
+  </div>
 </div>
 
-<div class="container">
+<div *ngIf="loading == 'done'" class="container">
   <!--SHOWS ALL NURSES PANEL-->
-  <div *ngIf="loading == 'done'" class="allNurses">
+  <div class="allNurses">
     <div *ngFor="let nurse of nurses" class="card">
       <h2>{{ nurse.name }}</h2>
       <h4>Experience: {{ nurse.total_experience }}</h4>
@@ -29,10 +33,7 @@
 
   <!--SHOWS SELECTED NURSES PANEL-->
   <div class="selectedNurses"></div>
-
 </div>
-
-
 
 <div *ngIf="loading == 'error'">
   <p>Error encountered.</p>
