@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './main/app.component';
 import { RouterModule } from '@angular/router';
-import { NursesComponent } from './Nurses/Nurses.component';
+import { NursesComponent } from './Nurses/Nurses/Nurses.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { NursesComponent } from './Nurses/Nurses.component';
     BrowserModule,
     RouterModule.forRoot([
       {
-        path: '',
+        path: 'nurses',
         component: NursesComponent
       }
     ])
