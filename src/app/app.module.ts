@@ -14,11 +14,12 @@ import { NursesComponent } from './Nurses/Nurses/Nurses.component';
     RouterModule.forRoot([
       {
         path: 'nurses',
-        component: NursesComponent
+        loadChildren: () => import(`./Nurses/Nurses.module`).then(module => module.NursesModule)
       }
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // exports: [RouterModule]
 })
 export class AppModule { }
