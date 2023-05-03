@@ -1,1 +1,15 @@
-<button (click)="getNurses()" >Get Nurses From Servers</button>
+<button (click)="getNurses()">Get Nurses From Servers</button>
+
+<div *ngIf="loading == 'loading'">
+  <h1>Please wait, loading data</h1>
+</div>
+
+<div *ngIf="loading == 'done'">
+  <p *ngFor="let nurse of nurses">
+    {{ nurse.name }}
+  </p>
+</div>
+
+<div *ngIf="loading == 'error'">
+  <p>Error encountered.</p>
+</div>
