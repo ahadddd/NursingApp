@@ -66,7 +66,7 @@ export class NursesComponent implements OnInit {
   }
 
   sendNurseData(index: any) {
-    this.dataService.setData(this.nurses[index])
+    this.dataService.setData(this.nurses[index]);
   }
   
 

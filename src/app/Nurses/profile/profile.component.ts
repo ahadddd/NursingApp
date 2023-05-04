@@ -12,7 +12,8 @@ export class ProfileComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getData();
+    this.nurseData = this.dataService.getData();
+    
   }
   
 

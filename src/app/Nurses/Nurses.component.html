@@ -35,12 +35,13 @@
         <button (click)="addNurse(i)" class="usrBtn">Select Nurse</button>
         <button
           routerLink="profile"
+          (click)="sendNurseData(i)"
           class="usrBtn"
           style="background-color: rgb(72, 132, 254)"
         >
           View Profile
         </button>
-        <button class="usrBtn" (click)="sendNurseData(i)" style="background-color: rgb(232, 108, 0)">
+        <button class="usrBtn" style="background-color: rgb(232, 108, 0)">
           Schedule Visit
         </button>
       </div>
