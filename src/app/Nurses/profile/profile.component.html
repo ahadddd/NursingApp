@@ -1,3 +1,23 @@
 <div class="container">
-  Profile Component Template
+  <div class="profile">
+    <!--NURSE DETAILS-->
+    <div class="nurseDetails"></div>
+
+    <!--NURSE DETAILS-->
+    <div class="servicesBox">
+      <div style="width: max-content">
+        <h2 style="font-weight: 300;">services</h2>
+      </div>
+      <div class="services">
+        <div class="serviceBubble" *ngFor="let service of nurseData.services">
+          <p style="font-weight: 500; letter-spacing: -0.5px; font-size: 15px;">{{service.service.name_en}}</p> 
+        </div>
+      </div>
+
+    </div>
+
+    <!--HOURLY RATES-->
+    <div class="rates"></div>
+  </div>
+  <div class="sidePanel"></div>
 </div>

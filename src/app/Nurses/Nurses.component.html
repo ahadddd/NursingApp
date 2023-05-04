@@ -41,7 +41,7 @@
         >
           View Profile
         </button>
-        <button class="usrBtn" style="background-color: rgb(232, 108, 0)">
+        <button (click) = displayModal()  class="usrBtn" style="background-color: rgb(232, 108, 0)">
           Schedule Visit
         </button>
       </div>
@@ -92,3 +92,13 @@
     <p style="font-size: 30px; font-weight: 300">Error encountered.</p>
   </div>
 </div>
+
+<div *ngIf="showModal">
+  <div class="modal">
+    <div class="schedBox">
+      <h1>Schedule Modal</h1>
+      <button (click)="closeModal()" class="closeBtnb">X</button>
+    </div>
+  </div>  
+</div>
+

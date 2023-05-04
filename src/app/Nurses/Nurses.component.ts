@@ -15,6 +15,7 @@ export class NursesComponent implements OnInit {
   loading = '';
   nurses: any = [];
   selectedNurses: any = [];
+  showModal=false;
   constructor(private http: HttpClient, private dataService: DataService) { }
 
   ngOnInit() {
@@ -68,6 +69,11 @@ export class NursesComponent implements OnInit {
   sendNurseData(index: any) {
     this.dataService.setData(this.nurses[index]);
   }
-  
+  displayModal() {
+    this.showModal = true;
+  }
+  closeModal() {
+    this.showModal = false;
+  }
 
 }

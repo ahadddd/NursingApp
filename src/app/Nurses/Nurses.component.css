@@ -118,3 +118,28 @@ h4 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 300;
 }
+
+
+
+div.modal{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100%; width: 100%;
+    display: flex;
+    position: absolute; top: 0px; left: 0px;
+    z-index: 3;
+    background-color: rgba(155, 155, 155, 0.701);
+    justify-content: center; align-items: center;
+}
+
+div.schedBox{
+    height: 300px; width: 300px;
+    border: none; background-color: white;
+}
+
+h1{
+    font-weight: 300; letter-spacing: -0.5px;
+}
+
+button.closeBtn{
+    height: 10px; width: 10px; background-color : red;
+}
