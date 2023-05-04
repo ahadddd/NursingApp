@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
       {
         path: '',
         component: NursesComponent
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import(`../Nurses/Nurses/ProfileDetails/ProfileDetails.module`).then(modules => modules.ProfileDetailsModule)
       }
     ])
   ],

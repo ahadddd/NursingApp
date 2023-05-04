@@ -64,6 +64,14 @@ export class NursesComponent implements OnInit {
     console.log(this.selectedNurses);
   }
 
+  // showProfile() {
+  //   let req = this.http.get('http://localhost:4200/nurses/profile');
+  //   req.subscribe({
+  //     next: (res) => console.log(res),
+  //     error: (err) => console.log(err)
+  //   })
+  // }
+
 
 
 }

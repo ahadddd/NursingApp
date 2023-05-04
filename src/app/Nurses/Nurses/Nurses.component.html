@@ -14,6 +14,7 @@
 
 <!--SHOWS WHEN NURSES ARE LOADED AND READY TO BE SELECTED-->
 <div *ngIf="loading == 'done'" class="container">
+
   <!--SHOWS ALL NURSES PANEL-->
   <div class="allNurses">
     <!--NURSE DESCRIPTION (UNSELECTED)-->
@@ -33,12 +34,13 @@
 
       <div class="userControls">
         <button (click)="addNurse(i)" class="usrBtn" >Select Nurse</button>
-        <button  class="usrBtn" style="background-color: rgb(72, 132, 254) ;" >View Profile</button>
+        <button routerLink="/profile" class="usrBtn" style="background-color: rgb(72, 132, 254) ;" >View Profile</button>
         <button  class="usrBtn" style="background-color: rgb(232, 108, 0);">Schedule Visit</button>
       </div>
     </div>
   </div>
 
+  <!--CENTRAL PANEL-->
   <div class="controls">
     <button (click)="selectAll()" style="margin-bottom: 5px">Select All</button>
 
@@ -71,6 +73,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <div *ngIf="loading == 'error'" class="container">
