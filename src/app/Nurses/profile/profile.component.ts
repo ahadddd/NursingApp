@@ -13,7 +13,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.nurseData = this.dataService.getData();
-    
   }
   
 
