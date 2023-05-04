@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from './Data.service';
 
 @Component({
   selector: 'app-Nurses',
@@ -14,11 +15,9 @@ export class NursesComponent implements OnInit {
   loading = '';
   nurses: any = [];
   selectedNurses: any = [];
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient, private dataService: DataService) { }
 
   ngOnInit() {
-    console.log("nurses Component");
-    
   }
 
   getNurses() {
@@ -27,7 +26,7 @@ export class NursesComponent implements OnInit {
     req.subscribe({
       next: (res: any) => {
         this.nurses = res.data;
-        console.log(this.nurses);
+        // console.log(this.nurses);
         this.loading = 'done';
       },
       error: () => {
@@ -66,14 +65,9 @@ export class NursesComponent implements OnInit {
     console.log(this.selectedNurses);
   }
 
-  // showProfile() {
-  //   let req = this.http.get('http://localhost:4200/nurses/profile');
-  //   req.subscribe({
-  //     next: (res) => console.log(res),
-  //     error: (err) => console.log(err)
-  //   })
-  // }
-
-
+  sendNurseData(index: any) {
+    this.dataService.setData(this.nurses[index])
+  }
+  
 
 }
