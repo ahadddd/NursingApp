@@ -24,18 +24,17 @@
         {{ nurse.zsr_number + " Years" }}
       </h4>
       <h4>Address: {{ nurse.address }}</h4>
-      <h4>
-        Services:
+      
         <div class="services">
           <div *ngFor="let service of nurse.services" class="serviceBubble">
             {{ service.service.name_en }}
           </div>
         </div>
-      </h4>
+
       <div class="userControls">
         <button (click)="addNurse(i)" class="usrBtn" >Select Nurse</button>
-        <button  class="usrBtn" >View Profile</button>
-        <button  class="usrBtn" >Schedule Visit</button>
+        <button  class="usrBtn" style="background-color: rgb(72, 132, 254) ;" >View Profile</button>
+        <button  class="usrBtn" style="background-color: rgb(232, 108, 0);">Schedule Visit</button>
       </div>
     </div>
   </div>
@@ -58,18 +57,17 @@
         {{ nurse.zsr_number + " Years" }}
       </h4>
       <h4>Address: {{ nurse.address }}</h4>
-      <h4>
-        Services:
+      
         <div class="services">
           <div *ngFor="let service of nurse.services" class="serviceBubble">
             {{ service.service.name_en }}
           </div>
         </div>
-      </h4>
+        
       <div class="userControls">
-        <button (click)="removeNurse(i)">Deselect Nurse</button>
-        <button>View Profile</button>
-        <button>Schedule Visit</button>
+        <button (click)="removeNurse(i)" class="usrBtn" >Remove Nurse</button>
+        <button  class="usrBtn" style="background-color: rgb(72, 132, 254) ;" >View Profile</button>
+        <button  class="usrBtn" style="background-color: rgb(232, 108, 0);">Schedule Visit</button>
       </div>
     </div>
   </div>

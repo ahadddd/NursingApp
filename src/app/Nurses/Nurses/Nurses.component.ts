@@ -60,7 +60,8 @@ export class NursesComponent implements OnInit {
 
   removeNurse(index: any) {
     console.log(this.selectedNurses[index]);
-    this.selectedNurses.pop(index)
+    this.selectedNurses.splice(index, 1);
+    console.log(this.selectedNurses);
   }
 
 
