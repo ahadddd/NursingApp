@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Nurses',
@@ -13,10 +14,11 @@ export class NursesComponent implements OnInit {
   loading = '';
   nurses: any = [];
   selectedNurses: any = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
   ngOnInit() {
-
+    console.log("nurses Component");
+    
   }
 
   getNurses() {

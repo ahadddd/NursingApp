@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NursesComponent } from './Nurses/Nurses.component';
+import { NursesComponent } from './Nurses.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
       },
       {
         path: 'profile',
-        loadChildren: () => import(`./ProfileDetails.module`).then(modules => modules.ProfileDetailsModule)
+        loadChildren: () => import(`./profile/profile.module`).then(module => module.ProfileModule)
       }
     ])
   ],

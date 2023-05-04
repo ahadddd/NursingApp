@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './main/app.component';
 import { RouterModule } from '@angular/router';
-import { NursesComponent } from './Nurses/Nurses/Nurses.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +14,10 @@ import { NursesComponent } from './Nurses/Nurses/Nurses.component';
       {
         path: 'nurses',
         loadChildren: () => import(`./Nurses/Nurses.module`).then(module => module.NursesModule)
+      },
+      {
+        path: '',
+        component: AppComponent
       }
     ])
   ],
