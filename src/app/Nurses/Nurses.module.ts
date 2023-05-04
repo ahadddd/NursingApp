@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
       },
       {
         path: 'profile',
-        loadChildren: () => import(`../Nurses/Nurses/ProfileDetails/ProfileDetails.module`).then(modules => modules.ProfileDetailsModule)
+        loadChildren: () => import(`./ProfileDetails.module`).then(modules => modules.ProfileDetailsModule)
       }
     ])
   ],

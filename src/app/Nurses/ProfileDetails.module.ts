@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileDetailsComponent } from './ProfileDetails.component';
+import { ProfileDetailsComponent } from './Nurses/ProfileDetails/ProfileDetails.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
