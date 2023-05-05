@@ -22,7 +22,6 @@ div.container {
     left: 0px;
     width: 100%;
     height: 650px;
-    border: 0.5px solid;
     box-sizing: border-box;
     justify-content: space-between;
 }
@@ -30,7 +29,11 @@ div.container {
 div.allNurses {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
-    border: 1px solid;
+    border: 5px solid rgb(216, 232, 255);
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 20px;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -45,7 +48,10 @@ div.allNurses {
 div.selectedNurses {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
-    border: 0.5px solid;
+    border: 5px solid rgb(216, 232, 255);
+    border-radius: 10px;
+    padding-top: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

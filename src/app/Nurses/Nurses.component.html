@@ -15,6 +15,19 @@
 <!--SHOWS WHEN NURSES ARE LOADED AND READY TO BE SELECTED-->
 <div *ngIf="loading == 'done'" class="container">
   <!--SHOWS ALL NURSES PANEL-->
+  <p
+    style="
+      font-size: 25px;
+      font-weight: 500;
+      color: rgb(84, 136, 214);
+      letter-spacing: -0.5px;
+      position: absolute;
+      top: -60px;
+      left: 200px;
+    "
+  >
+    ALL NURSES
+  </p>
   <div class="allNurses">
     <!--NURSE DESCRIPTION (UNSELECTED)-->
     <div *ngFor="let nurse of nurses; let i = index" class="cardOutline">
@@ -56,20 +69,51 @@
 
   <!--CENTRAL PANEL-->
   <div class="controls">
-    <p>
+    <p >
       Total Amount:
       {{ totalAmount }}
     </p>
 
     <p>Selected Nurses: {{ selectedNurses.length }}</p>
-    <button (click)="selectAll()" style="margin-bottom: 5px">Select All</button>
+    <button
+      (click)="selectAll()"
+      style="
+        margin-bottom: 5px;
+        background-color: rgb(232, 108, 0);
+        width: 130px;
+        font-weight: 500;
+        font-size: 17px;
+      "
+    >
+      Select All
+    </button>
 
-    <button (click)="deselectAll()" style="margin-top: 5px">
+    <button
+      (click)="deselectAll()"
+      style="
+        margin-top: 5px;
+        background-color: rgb(72, 132, 254);
+        font-weight: 500;
+        font-size: 17px;
+      "
+    >
       Deselect All
     </button>
   </div>
 
   <!--SHOWS SELECTED NURSES PANEL-->
+  <p
+    style="
+      color: rgb(84, 136, 214);
+      font-size: 25px;
+      font-weight: 500;
+      position: absolute;
+      top: -60px;
+      right: 190px;
+    "
+  >
+    SELECTED NURSES
+  </p>
   <div class="selectedNurses">
     <!--NURSE DESCRIPTION (SELECTED) -->
     <div
