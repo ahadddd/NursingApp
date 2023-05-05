@@ -57,13 +57,11 @@
   <!--CENTRAL PANEL-->
   <div class="controls">
     <p>
-      Total Amount: 
-      {{totalAmount}}
+      Total Amount:
+      {{ totalAmount }}
     </p>
 
-    <p>
-      Selected Nurses: {{selectedNurses.length}} 
-    </p>
+    <p>Selected Nurses: {{ selectedNurses.length }}</p>
     <button (click)="selectAll()" style="margin-bottom: 5px">Select All</button>
 
     <button (click)="deselectAll()" style="margin-top: 5px">
@@ -74,7 +72,10 @@
   <!--SHOWS SELECTED NURSES PANEL-->
   <div class="selectedNurses">
     <!--NURSE DESCRIPTION (SELECTED) -->
-    <div *ngFor="let nurse of selectedNurses; let i = index" class="cardOutline">
+    <div
+      *ngFor="let nurse of selectedNurses; let i = index"
+      class="cardOutline"
+    >
       <div class="card">
         <h2>{{ nurse.name }}</h2>
         <h4>Experience: {{ nurse.total_experience }}</h4>
@@ -91,10 +92,19 @@
 
         <div class="userControls">
           <button (click)="removeNurse(i)" class="usrBtn">Remove Nurse</button>
-          <button class="usrBtn" style="background-color: rgb(72, 132, 254)">
+          <button
+            routerLink="profile"
+            (click)="sendNurseData(i)"
+            class="usrBtn"
+            style="background-color: rgb(72, 132, 254)"
+          >
             View Profile
           </button>
-          <button class="usrBtn" style="background-color: rgb(232, 108, 0)">
+          <button
+            (click)="displayModal(i)"
+            class="usrBtn"
+            style="background-color: rgb(232, 108, 0)"
+          >
             Schedule Visit
           </button>
         </div>
@@ -131,9 +141,7 @@
       <div class="schedItem" *ngFor="let schedule of scheduledNurse?.schedules">
         <div class="dateTime">
           <p>
-            {{
-              schedule.start_time.slice(0, 10) | date : "fullDate" : "en-US"
-            }}
+            {{ schedule.start_time.slice(0, 10) | date : "fullDate" : "en-US" }}
             - {{ schedule.end_time.slice(0, 10) | date : "fullDate" : "en-US" }}
           </p>
 

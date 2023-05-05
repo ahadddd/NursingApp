@@ -80,6 +80,11 @@ export class NursesComponent implements OnInit {
 
   removeNurse(index: any) {
     console.log(this.selectedNurses[index]);
+    let deductable: any = 0;
+    this.selectedNurses[index].services.forEach((item: any) => {
+      deductable += item.base_price;
+    })
+    this.totalAmount -= deductable;
     this.selectedNurses.splice(index, 1);
     console.log(this.selectedNurses);
   }
