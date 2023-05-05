@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './Data.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-Nurses',
@@ -18,7 +19,7 @@ export class NursesComponent implements OnInit {
   showModal=false;
   scheduledNurse: any;
 
-  constructor(private http: HttpClient, private dataService: DataService) { }
+  constructor(private http: HttpClient, private dataService: DataService, public dp: DatePipe) { }
 
   ngOnInit() {
   }
@@ -58,7 +59,7 @@ export class NursesComponent implements OnInit {
     })
     if(exists == false) {
       this.selectedNurses.push(this.nurses[index]);
-      alert('Nurse Added.');
+      // alert('Nurse Added.');
     }
   }
 

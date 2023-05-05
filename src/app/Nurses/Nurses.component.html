@@ -17,37 +17,39 @@
   <!--SHOWS ALL NURSES PANEL-->
   <div class="allNurses">
     <!--NURSE DESCRIPTION (UNSELECTED)-->
-    <div *ngFor="let nurse of nurses; let i = index" class="card">
-      <h2>{{ nurse.name }}</h2>
-      <h4>Experience: {{ nurse.total_experience }}</h4>
-      <h4 *ngIf="nurse.zsr_number !== null">
-        {{ nurse.zsr_number + " Years" }}
-      </h4>
-      <h4>Address: {{ nurse.address }}</h4>
+    <div *ngFor="let nurse of nurses; let i = index" class="cardOutline">
+      <div class="card">
+        <h2>{{ nurse.name }}</h2>
+        <h4>Experience: {{ nurse.total_experience }}</h4>
+        <h4 *ngIf="nurse.zsr_number !== null">
+          {{ nurse.zsr_number + " Years" }}
+        </h4>
+        <h4>Address: {{ nurse.address }}</h4>
 
-      <div class="services">
-        <div *ngFor="let service of nurse.services" class="serviceBubble">
-          {{ service.service.name_en }}
+        <div class="services">
+          <div *ngFor="let service of nurse.services" class="serviceBubble">
+            {{ service.service.name_en }}
+          </div>
         </div>
-      </div>
 
-      <div class="userControls">
-        <button (click)="addNurse(i)" class="usrBtn">Select Nurse</button>
-        <button
-          routerLink="profile"
-          (click)="sendNurseData(i)"
-          class="usrBtn"
-          style="background-color: rgb(72, 132, 254)"
-        >
-          View Profile
-        </button>
-        <button
-          (click)="displayModal(i)"
-          class="usrBtn"
-          style="background-color: rgb(232, 108, 0)"
-        >
-          Schedule Visit
-        </button>
+        <div class="userControls">
+          <button (click)="addNurse(i)" class="usrBtn">Select Nurse</button>
+          <button
+            routerLink="profile"
+            (click)="sendNurseData(i)"
+            class="usrBtn"
+            style="background-color: rgb(72, 132, 254)"
+          >
+            View Profile
+          </button>
+          <button
+            (click)="displayModal(i)"
+            class="usrBtn"
+            style="background-color: rgb(232, 108, 0)"
+          >
+            Schedule Visit
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -64,28 +66,30 @@
   <!--SHOWS SELECTED NURSES PANEL-->
   <div class="selectedNurses">
     <!--NURSE DESCRIPTION (SELECTED) -->
-    <div *ngFor="let nurse of selectedNurses; let i = index" class="card">
-      <h2>{{ nurse.name }}</h2>
-      <h4>Experience: {{ nurse.total_experience }}</h4>
-      <h4 *ngIf="nurse.zsr_number !== null">
-        {{ nurse.zsr_number + " Years" }}
-      </h4>
-      <h4>Address: {{ nurse.address }}</h4>
+    <div *ngFor="let nurse of selectedNurses; let i = index" class="cardOutline">
+      <div class="card">
+        <h2>{{ nurse.name }}</h2>
+        <h4>Experience: {{ nurse.total_experience }}</h4>
+        <h4 *ngIf="nurse.zsr_number !== null">
+          {{ nurse.zsr_number + " Years" }}
+        </h4>
+        <h4>Address: {{ nurse.address }}</h4>
 
-      <div class="services">
-        <div *ngFor="let service of nurse.services" class="serviceBubble">
-          {{ service.service.name_en }}
+        <div class="services">
+          <div *ngFor="let service of nurse.services" class="serviceBubble">
+            {{ service.service.name_en }}
+          </div>
         </div>
-      </div>
 
-      <div class="userControls">
-        <button (click)="removeNurse(i)" class="usrBtn">Remove Nurse</button>
-        <button class="usrBtn" style="background-color: rgb(72, 132, 254)">
-          View Profile
-        </button>
-        <button class="usrBtn" style="background-color: rgb(232, 108, 0)">
-          Schedule Visit
-        </button>
+        <div class="userControls">
+          <button (click)="removeNurse(i)" class="usrBtn">Remove Nurse</button>
+          <button class="usrBtn" style="background-color: rgb(72, 132, 254)">
+            View Profile
+          </button>
+          <button class="usrBtn" style="background-color: rgb(232, 108, 0)">
+            Schedule Visit
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -100,14 +104,45 @@
 <!--SCHEDULE BOX FOR NURSE-->
 <div *ngIf="showModal" class="modal">
   <div class="schedBox">
-
     <div class="schedHeader">
-      <p style="font-weight: 500; font-size: large; margin-left: 10px">
-        Schedule Modal
+      <p
+        style="
+          font-weight: 500;
+          font-size: 20px;
+          margin-left: 10px;
+          color: rgb(74, 162, 225);
+          letter-spacing: 0.5px;
+        "
+      >
+        Schedules
       </p>
       <button (click)="closeModal()" class="closeBtn">X</button>
     </div>
-    
+
+    <div class="schedBody">
+      <div class="schedItem" *ngFor="let schedule of scheduledNurse?.schedules">
+        <div class="dateTime">
+          <p>
+            {{
+              schedule.start_time.slice(0, 10) | date : "fullDate" : "en-US"
+            }}
+            - {{ schedule.end_time.slice(0, 10) | date : "fullDate" : "en-US" }}
+          </p>
+
+          <p>
+            {{ schedule.start_time.slice(11, 16) }} -
+            {{ schedule.end_time.slice(11, 16) }}
+          </p>
+        </div>
+
+        <div class="status">
+          <p *ngIf="schedule.status == 'not_available'">
+            Status: Not Available
+          </p>
+          <p *ngIf="schedule.status == 'available'">Status: Available</p>
+        </div>
+      </div>
+    </div>
 
     <!-- <div class="nurseSchedule">Name: {{ scheduledNurse?.name }}</div> -->
   </div>
