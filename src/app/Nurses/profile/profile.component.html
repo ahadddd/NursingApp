@@ -1,23 +1,133 @@
 <div class="container">
+  <!--PROFILE PANEL FOR NURSE-->
   <div class="profile">
     <!--NURSE DETAILS-->
-    <div class="nurseDetails"></div>
+    <div class="nurseDetails">
+      <p style="font-size: 25px; font-weight: 400;">Name: {{nurseData.name}}</p>
+      <p style="font-size: 20px; font-weight: 400;">Age: {{nurseData.dob}}</p>
+      <p style="font-size: 20px; font-weight: 400;">K Number: {{nurseData.k_number}} </p>
+      <p style="font-size: 20px; font-weight: 400;">ZSR Number: {{nurseData.zsr_number}} </p>
+      <p style="font-size: 20px; font-weight: 400;">SBK Number: {{nurseData.sbk_number}} </p>
+    </div>
 
-    <!--NURSE DETAILS-->
+    <!--NURSE SERVICES-->
     <div class="servicesBox">
-      <div style="width: max-content">
-        <h2 style="font-weight: 300;">services</h2>
-      </div>
+      <p
+        style="
+          font-weight: 600;
+          position: relative;
+          top: -20px;
+          font-size: 25px;
+          color: #3f8cf3;
+        "
+      >
+        Services:
+      </p>
       <div class="services">
         <div class="serviceBubble" *ngFor="let service of nurseData.services">
-          <p style="font-weight: 500; letter-spacing: -0.5px; font-size: 15px;">{{service.service.name_en}}</p> 
+          <p style="font-weight: 500; letter-spacing: -0.5px; font-size: 15px">
+            {{ service.service.name_en }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--HOURLY RATES-->
+    <div class="rates">
+      <div class="rateTitle">
+        <p
+          style="
+            font-weight: 600;
+            position: relative;
+            top: -20px;
+            font-size: 20px;
+            color: #3f8cf3;
+          "
+        >
+          Hourly Rates:
+        </p>
+      </div>
+      <div class="wrapper">
+        <div class="serviceName">
+          <p *ngFor="let service of nurseData.services">
+            {{ service.service.name_en }}
+          </p>
+        </div>
+        <div class="prices">
+          <p *ngFor="let service of nurseData.services">
+            CHF {{ nurseData.base_price }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--REQUESTS BUTTON-->
+    <button id="requests">Requests</button>
+  </div>
+
+  <!--SIDE PANEL CONTAINING DETAILS-->
+  <div class="sidePanel">
+    <div class="docs">
+      <div id="docTitle">
+        <p>Documents</p>
+      </div>
+    </div>
+
+
+
+     <!--SCHEDULE FOR NURSE-->
+    <div class="schedule">
+      <div class="schedHeader">
+        <p
+          style="
+            font-weight: 500;
+            font-size: 20px;
+            margin-left: 10px;
+            color: rgb(74, 162, 225);
+            letter-spacing: 0.5px;
+          "
+        >
+          Schedules
+        </p>
+      </div>
+  
+      <div class="schedBody">
+        <div class="schedItem" *ngFor="let schedule of nurseData.schedules">
+          <div class="dateTime">
+            <p>
+              {{
+                schedule.start_time.slice(0, 10) | date : "fullDate" : "en-US"
+              }}
+              - {{ schedule.end_time.slice(0, 10) | date : "fullDate" : "en-US" }}
+            </p>
+  
+            <p>
+              {{ schedule.start_time.slice(11, 16) }} -
+              {{ schedule.end_time.slice(11, 16) }}
+            </p>
+          </div>
+  
+          <div class="status">
+            <p *ngIf="schedule.status == 'not_available'">
+              Status: Not Available
+            </p>
+            <p *ngIf="schedule.status == 'available'">
+              Status: Available
+            </p>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <!--HOURLY RATES-->
-    <div class="rates"></div>
+
+
+
+
+
+
+    <div class="reviews">
+
+    </div>
   </div>
-  <div class="sidePanel"></div>
 </div>
