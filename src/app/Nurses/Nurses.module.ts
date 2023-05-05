@@ -19,6 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
       }
     ])
   ],
-  declarations: [NursesComponent]
+  declarations: [NursesComponent],
 })
 export class NursesModule { }

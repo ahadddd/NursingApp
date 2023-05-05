@@ -41,7 +41,11 @@
         >
           View Profile
         </button>
-        <button (click) = displayModal()  class="usrBtn" style="background-color: rgb(232, 108, 0)">
+        <button
+          (click)="displayModal(i)"
+          class="usrBtn"
+          style="background-color: rgb(232, 108, 0)"
+        >
           Schedule Visit
         </button>
       </div>
@@ -93,12 +97,18 @@
   </div>
 </div>
 
-<div *ngIf="showModal">
-  <div class="modal">
-    <div class="schedBox">
-      <h1>Schedule Modal</h1>
-      <button (click)="closeModal()" class="closeBtnb">X</button>
-    </div>
-  </div>  
-</div>
+<!--SCHEDULE BOX FOR NURSE-->
+<div *ngIf="showModal" class="modal">
+  <div class="schedBox">
 
+    <div class="schedHeader">
+      <p style="font-weight: 500; font-size: large; margin-left: 10px">
+        Schedule Modal
+      </p>
+      <button (click)="closeModal()" class="closeBtn">X</button>
+    </div>
+    
+
+    <!-- <div class="nurseSchedule">Name: {{ scheduledNurse?.name }}</div> -->
+  </div>
+</div>
