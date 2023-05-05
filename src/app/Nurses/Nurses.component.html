@@ -56,6 +56,14 @@
 
   <!--CENTRAL PANEL-->
   <div class="controls">
+    <p>
+      Total Amount: 
+      {{totalAmount}}
+    </p>
+
+    <p>
+      Selected Nurses: {{selectedNurses.length}} 
+    </p>
     <button (click)="selectAll()" style="margin-bottom: 5px">Select All</button>
 
     <button (click)="deselectAll()" style="margin-top: 5px">

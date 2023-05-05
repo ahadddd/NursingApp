@@ -18,10 +18,12 @@ export class NursesComponent implements OnInit {
   selectedNurses: any = [];
   showModal=false;
   scheduledNurse: any;
+  totalAmount: number = 0;
 
   constructor(private http: HttpClient, private dataService: DataService, public dp: DatePipe) { }
 
   ngOnInit() {
+    this.getNurses();
   }
 
   getNurses() {
@@ -41,10 +43,18 @@ export class NursesComponent implements OnInit {
 
   selectAll() {
     this.selectedNurses = this.nurses;
+    let total: number = 0;
+    for(var i = 0; i < this.nurses.length; i++) {
+      this.nurses[i].services.forEach((item: any) => {
+        total += item.base_price;
+      })
+    }
+    this.totalAmount = total;
   }
 
   deselectAll() {
     this.selectedNurses = [];
+    this.totalAmount = 0;
   }
 
   addNurse(index: any) {
@@ -59,6 +69,11 @@ export class NursesComponent implements OnInit {
     })
     if(exists == false) {
       this.selectedNurses.push(this.nurses[index]);
+      let total: number = 0;
+      this.nurses[index].services.forEach((item: any) => {
+        total += item.base_price;
+      });
+      this.totalAmount += total;
       // alert('Nurse Added.');
     }
   }
