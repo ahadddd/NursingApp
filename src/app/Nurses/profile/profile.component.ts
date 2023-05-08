@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../Data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +10,15 @@ import { DataService } from '../Data.service';
 export class ProfileComponent implements OnInit {
 
   nurseData: any;
-  constructor(private dataService: DataService) { }
+  userId: any;
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.nurseData = this.dataService.getData();
+    console.log("//////");
+    this.route.params.subscribe(params => {
+      this.userId = params['id'];
+    });
+    
   }
   
 

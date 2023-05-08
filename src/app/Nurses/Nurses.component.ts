@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './Data.service';
 import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-Nurses',
@@ -20,7 +21,7 @@ export class NursesComponent implements OnInit {
   scheduledNurse: any;
   totalAmount: number = 0;
 
-  constructor(private http: HttpClient, private dataService: DataService, public dp: DatePipe) { }
+  constructor(private http: HttpClient, private dataService: DataService, public dp: DatePipe, private router:Router) { }
 
   ngOnInit() {
     this.getNurses();
@@ -90,8 +91,20 @@ export class NursesComponent implements OnInit {
   }
 
   sendNurseData(index: any) {
-    this.dataService.setData(this.nurses[index]);
+    let id = this.nurses[index].id;
+    this.router.navigate([`/profile`, id])
+
+    // let res: any  = this.http.get(`https://api.digital4nurse.ch/api/public/nurse/${id}`);
+    // let data: any;
+    // res.subscribe({
+    //   next: (res: any) => {console.log(res.data)},
+    //   error: () => alert('Error Encountered')
+    // })
+    // this.dataService.setData(data);
   }
+
+
+
   displayModal(index: any) {
     this.showModal = true;
     this.scheduledNurse = this.nurses[index];

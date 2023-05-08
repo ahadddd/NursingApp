@@ -3,19 +3,25 @@
   <div class="profile">
     <!--NURSE DETAILS-->
     <div class="nurseDetails">
-      <p style="font-size: 25px; font-weight: 400">
-        Name: {{ nurseData.name }}
-      </p>
-      <p style="font-size: 20px; font-weight: 400">Age: {{ nurseData.dob }}</p>
-      <p style="font-size: 20px; font-weight: 400">
-        K Number: {{ nurseData.k_number }}
-      </p>
-      <p style="font-size: 20px; font-weight: 400">
-        ZSR Number: {{ nurseData.zsr_number }}
-      </p>
-      <p style="font-size: 20px; font-weight: 400">
-        SBK Number: {{ nurseData.sbk_number }}
-      </p>
+      <img src="assets/nurse-profile.jpg" height="300px" width="300px" style="margin-right: 10px;" />
+
+      <div class="nurseData">
+        <p style="font-size: 25px; font-weight: 500">
+          Name: {{ nurseData.name }}
+        </p>
+        <p style="font-size: 18px; font-weight: 400">
+          Age: {{ nurseData.dob }}
+        </p>
+        <p style="font-size: 18px; font-weight: 400">
+          K Number: {{ nurseData.k_number }}
+        </p>
+        <p style="font-size: 18px; font-weight: 400">
+          ZSR Number: {{ nurseData.zsr_number }}
+        </p>
+        <p style="font-size: 18px; font-weight: 400">
+          SBK Number: {{ nurseData.sbk_number }}
+        </p>
+      </div>
     </div>
 
     <!--NURSE SERVICES-->

@@ -33,15 +33,31 @@
     <div *ngFor="let nurse of nurses; let i = index" class="cardOutline">
       <div class="card">
         <div class="nurseDetails">
-          <img src="C:\Users\Ahad\Desktop\angular-app\src\assets\nurse-profile.jpg" />
-          <h2>{{ nurse.name }}</h2>
-          <h4>Experience: {{ nurse.total_experience }}</h4>
-          <h4 *ngIf="nurse.zsr_number !== null">
-            {{ nurse.zsr_number + " Years" }}
-          </h4>
-          <h4>Address: {{ nurse.address }}</h4>
+          <img
+            src="assets/nurse-profile.jpg"
+            height="200px"
+            width="200px"
+            style="border-radius: 10px"
+          />
+
+          <div class="nurseData">
+            <p style="font-weight: 500; font-size: 20px">{{ nurse.name }}</p>
+            <p>Experience: {{ nurse.total_experience }}</p>
+            <p *ngIf="nurse.zsr_number !== null">
+              ZSR Number: {{ nurse.zsr_number + " Years" }}
+            </p>
+            <p *ngIf="nurse.zsr_number == null">ZSR Number: Not Mentioned</p>
+            <p style="font-size: 18px">
+              <span>
+                <img
+                  src="assets/icons-location.png"
+                  style="position: relative; top: 5px; left: 5px"
+                />
+              </span>
+              {{ nurse.address }}
+            </p>
+          </div>
         </div>
-        
 
         <div class="services">
           <div *ngFor="let service of nurse.services" class="serviceBubble">
@@ -51,8 +67,8 @@
 
         <div class="userControls">
           <button (click)="addNurse(i)" class="usrBtn">Select Nurse</button>
+          
           <button
-            routerLink="profile"
             (click)="sendNurseData(i)"
             class="usrBtn"
             style="background-color: rgb(72, 132, 254)"
@@ -73,12 +89,19 @@
 
   <!--CENTRAL PANEL-->
   <div class="controls">
-    <p >
+    <p style="font-weight: 500; font-size: 20px">
       Total Amount:
-      {{ totalAmount }}
+      <span style="color: rgb(66, 154, 255); font-weight: 500; font-size: 20px">
+        {{ totalAmount }}
+      </span>
     </p>
 
-    <p>Selected Nurses: {{ selectedNurses.length }}</p>
+    <p style="font-weight: 500; font-size: 20px">
+      Selected Nurses:
+      <span style="color: rgb(66, 154, 255); font-weight: 500; font-size: 20px">
+        {{ selectedNurses.length }}
+      </span>
+    </p>
     <button
       (click)="selectAll()"
       style="
@@ -125,12 +148,32 @@
       class="cardOutline"
     >
       <div class="card">
-        <h2>{{ nurse.name }}</h2>
-        <h4>Experience: {{ nurse.total_experience }}</h4>
-        <h4 *ngIf="nurse.zsr_number !== null">
-          {{ nurse.zsr_number + " Years" }}
-        </h4>
-        <h4>Address: {{ nurse.address }}</h4>
+        <div class="nurseDetails">
+          <img
+            src="assets/nurse-profile.jpg"
+            height="200px"
+            width="200px"
+            style="border-radius: 10px"
+          />
+
+          <div class="nurseData">
+            <p style="font-weight: 500; font-size: 20px">{{ nurse.name }}</p>
+            <p>Experience: {{ nurse.total_experience }}</p>
+            <p *ngIf="nurse.zsr_number !== null">
+              ZSR Number: {{ nurse.zsr_number + " Years" }}
+            </p>
+            <p *ngIf="nurse.zsr_number == null">ZSR Number: Not Mentioned</p>
+            <p style="font-size: 18px">
+              <span>
+                <img
+                  src="assets/icons-location.png"
+                  style="position: relative; top: 5px; left: 5px"
+                />
+              </span>
+              {{ nurse.address }}
+            </p>
+          </div>
+        </div>
 
         <div class="services">
           <div *ngFor="let service of nurse.services" class="serviceBubble">

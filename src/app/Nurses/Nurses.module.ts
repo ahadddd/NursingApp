@@ -14,11 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
         component: NursesComponent
       },
       {
-        path: 'profile',
+        path: 'profile/:id',
         loadChildren: () => import(`./Profile/Profile.module`).then(module => module.ProfileModule)
       }
     ])
   ],
-  declarations: [NursesComponent],
+  declarations: [NursesComponent]
 })
 export class NursesModule { }

@@ -17,6 +17,8 @@ div.profile{
 div.nurseDetails{
     height: max-content;
     width: 100%;
+    display: flex; flex-direction: row;
+    margin-bottom: 10px;
 }
 
 div.servicesBox{
@@ -96,6 +98,7 @@ div.docs{
     width: 100%; height: 200px;
     margin-bottom: 10px;
     border-radius: 5px;  border: none;
+    margin-top: 10px;
 }
 
 
