@@ -32,12 +32,16 @@
     <!--NURSE DESCRIPTION (UNSELECTED)-->
     <div *ngFor="let nurse of nurses; let i = index" class="cardOutline">
       <div class="card">
-        <h2>{{ nurse.name }}</h2>
-        <h4>Experience: {{ nurse.total_experience }}</h4>
-        <h4 *ngIf="nurse.zsr_number !== null">
-          {{ nurse.zsr_number + " Years" }}
-        </h4>
-        <h4>Address: {{ nurse.address }}</h4>
+        <div class="nurseDetails">
+          <img src="C:\Users\Ahad\Desktop\angular-app\src\assets\nurse-profile.jpg" />
+          <h2>{{ nurse.name }}</h2>
+          <h4>Experience: {{ nurse.total_experience }}</h4>
+          <h4 *ngIf="nurse.zsr_number !== null">
+            {{ nurse.zsr_number + " Years" }}
+          </h4>
+          <h4>Address: {{ nurse.address }}</h4>
+        </div>
+        
 
         <div class="services">
           <div *ngFor="let service of nurse.services" class="serviceBubble">
