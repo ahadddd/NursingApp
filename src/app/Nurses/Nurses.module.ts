@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NursesComponent } from './Nurses.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './Profile/Profile.component';
+import { ProfileModule } from './Profile/Profile.module';
+import { AppModule } from '../app.module';
 
 @NgModule({
   imports: [
@@ -15,8 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
       },
       {
         path: 'profile/:id',
-        loadChildren: () => import(`./Profile/Profile.module`).then(module => module.ProfileModule)
+        component: ProfileComponent
       }
+      
     ])
   ],
   declarations: [NursesComponent]

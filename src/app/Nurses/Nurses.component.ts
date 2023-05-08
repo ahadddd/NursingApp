@@ -29,6 +29,23 @@ export class NursesComponent implements OnInit {
 
   getNurses() {
     this.loading = 'loading';
+    // for(var i = 0; i < 120; i++) {
+    //   let req = this.http.get(`https://api.digital4nurse.ch/api/public/nurse/${i}`)
+    //   req.subscribe({
+    //     next: (res: any) => {
+    //       if(res.data !== null) {
+    //         this.nurses.push(res.data);
+    //       }
+          
+    //       // console.log(this.nurses);
+    //       // this.loading = 'done';
+    //     },
+    //     error: () => {
+    //       this.loading = 'error';
+    //     }
+    //   })
+    //   this.loading = 'done';
+    // }
     const req = this.http.post(this.baseURL, this.resource);
     req.subscribe({
       next: (res: any) => {
@@ -92,15 +109,8 @@ export class NursesComponent implements OnInit {
 
   sendNurseData(index: any) {
     let id = this.nurses[index].id;
-    this.router.navigate([`/profile`, id])
+    this.router.navigateByUrl(`nurses/profile/${id}`);
 
-    // let res: any  = this.http.get(`https://api.digital4nurse.ch/api/public/nurse/${id}`);
-    // let data: any;
-    // res.subscribe({
-    //   next: (res: any) => {console.log(res.data)},
-    //   error: () => alert('Error Encountered')
-    // })
-    // this.dataService.setData(data);
   }
 
 

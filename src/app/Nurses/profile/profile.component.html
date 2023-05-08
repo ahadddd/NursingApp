@@ -3,23 +3,28 @@
   <div class="profile">
     <!--NURSE DETAILS-->
     <div class="nurseDetails">
-      <img src="assets/nurse-profile.jpg" height="300px" width="300px" style="margin-right: 10px;" />
+      <img
+        src="assets/nurse-profile.jpg"
+        height="300px"
+        width="300px"
+        style="margin-right: 10px"
+      />
 
       <div class="nurseData">
         <p style="font-size: 25px; font-weight: 500">
-          Name: {{ nurseData.name }}
+          Name: {{ nurseData?.name }}
         </p>
         <p style="font-size: 18px; font-weight: 400">
-          Age: {{ nurseData.dob }}
+          Age: {{ nurseData?.dob }}
         </p>
         <p style="font-size: 18px; font-weight: 400">
-          K Number: {{ nurseData.k_number }}
+          K Number: {{ nurseData?.k_number }}
         </p>
         <p style="font-size: 18px; font-weight: 400">
-          ZSR Number: {{ nurseData.zsr_number }}
+          ZSR Number: {{ nurseData?.zsr_number }}
         </p>
         <p style="font-size: 18px; font-weight: 400">
-          SBK Number: {{ nurseData.sbk_number }}
+          SBK Number: {{ nurseData?.sbk_number }}
         </p>
       </div>
     </div>
@@ -38,9 +43,9 @@
         Services:
       </p>
       <div class="services">
-        <div class="serviceBubble" *ngFor="let service of nurseData.services">
+        <div class="serviceBubble" *ngFor="let service of nurseData?.services">
           <p style="font-weight: 500; letter-spacing: -0.5px; font-size: 15px">
-            {{ service.service.name_en }}
+            {{ service?.service.name_en }}
           </p>
         </div>
       </div>
@@ -63,13 +68,13 @@
       </div>
       <div class="wrapper">
         <div class="serviceName">
-          <p *ngFor="let service of nurseData.services">
+          <p *ngFor="let service of nurseData?.services">
             {{ service.service.name_en }}
           </p>
         </div>
         <div class="prices">
-          <p *ngFor="let service of nurseData.services">
-            CHF {{ nurseData.base_price }}
+          <p *ngFor="let service of nurseData?.services">
+            CHF {{ nurseData?.base_price }}
           </p>
         </div>
       </div>
@@ -101,9 +106,9 @@
                 font-weight: 500;
                 margin-left: 10px;
               "
-              *ngIf="nurseData.documents.length !== 0"
+              *ngIf="nurseData?.documents.length !== 0"
             >
-              {{ nurseData.documents.length }}
+              {{ nurseData?.documents.length }}
             </p>
             <p
               style="
@@ -112,7 +117,7 @@
                 font-weight: 500;
                 margin-left: 10px;
               "
-              *ngIf="nurseData.documents.length == 0"
+              *ngIf="nurseData?.documents.length == 0"
             >
               No Documents Available.
             </p>
@@ -138,7 +143,7 @@
       </div>
 
       <div class="schedBody">
-        <div class="schedItem" *ngFor="let schedule of nurseData.schedules">
+        <div class="schedItem" *ngFor="let schedule of nurseData?.schedules">
           <div class="dateTime">
             <p>
               {{
@@ -180,13 +185,13 @@
           <span>
             <p
               style="color: black; font-size: 17px; font-weight: 500"
-              *ngIf="nurseData.customer_review.length !== 0"
+              *ngIf="nurseData?.customer_review.length !== 0"
             >
-              {{ nurseData.customer_review.length }}
+              {{ nurseData?.customer_review.length }}
             </p>
             <p
               style="color: black; font-size: 17px; font-weight: 500"
-              *ngIf="nurseData.customer_review.length == 0"
+              *ngIf="nurseData?.customer_review.length == 0"
             >
               No Reviews Available.
             </p>
